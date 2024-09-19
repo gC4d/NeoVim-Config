@@ -30,7 +30,7 @@ return {
         cmd = { "omnisharp" },         capabilities = vim.lsp.protocol.make_client_capabilities(),
         on_attach = function(client, bufnr)
           local opts = { noremap = true, silent = true }
-         -- local buf_set_keymap = vim.api.nvim_buf_set_keymap
+          -- local buf_set_keymap = vim.api.nvim_buf_set_keymap
           vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
           vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
           vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -43,9 +43,10 @@ return {
           vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
           vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
           vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)        end,
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)       
+        end,
         root_dir = lspconfig.util.root_pattern(".git", ".csproj", ".sln"),
-      })   
+      })
       lspconfig.clangd.setup({})
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})

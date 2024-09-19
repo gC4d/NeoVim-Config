@@ -25,4 +25,5 @@ vim.keymap.set('n', '<C-s>', ':w<CR>', {})
 vim.keymap.set('n', '<C-S-q>', ':wq<CR>', {})
 
 require("catppuccin").setup()
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
 
